@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Gestionnaire d'appartements</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+<h1>Encoder les données de la pièce</h1>
+<div>
+<form action="/enregistrer" method="post">
+    <div id = "form_piece">
+    <label> Pièce: </label><input type="text" id="name" name="name"> <br>
+    <label> Largeur : </label>
+    <select name="Largeur" id="Largeur">
+        <% for( let i=1; i < 15; i++ ) { %>
+            <option value=<%=i%>><%=i%></option>
+        <%}%>
+    </select>
+    <br>
+    <label> Longueur : </label>
+    <select name="Longueur" id="Longueur">
+        <% for( let i=1; i < 15; i++ ) { %>
+            <option value=<%=i%>><%=i%></option>
+        <%}%>
+    </select> 
+    <br>
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
+<div id="bouton_surface">
+<button id="surface"> Calculer la surface</button>
+<p id="surface_text"></p>
+</div>
+</div>
+</body>
+<script>
+    button = document.getElementById('surface');
+button.addEventListener("click", function(e) {
+    text = document.getElementById("surface_text");
+    long = document.getElementById('Longueur');
+    larg = document.getElementById('Largeur');
+    text.innerText ="surface : "+long.value*larg.value+" M2";
+})
+</script>
+</html>

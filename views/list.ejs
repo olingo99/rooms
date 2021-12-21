@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Gestionnaire d'appartements</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<% var total = 0%>
+
+<h1>Liste des pièces de l'appartement</h1>
+<div>
+        <table>
+            <tbody>
+                <% for( let index=0; index < list_piece.length; index++ ) { %>
+                    <%total+=list_piece[index].length * list_piece[index].width%>
+                <tr>
+                    <td class="piece">    
+                        Pièce : 
+                        <%=list_piece[index].id%>    
+                        <%=list_piece[index].name%>
+                        <%=list_piece[index].length * list_piece[index].width%> m2
+                    </td>
+                    
+                </tr>
+                <% } %>
+                <tr>
+                <td id="total">
+
+                    Surface totale : <%=total%> m2  
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+            
+</div>
+<form action="/" method="get">
+    <button id="inscription" type="submit">Encoder une autre pièce</button>
+</form>
+</body>
+</html>
